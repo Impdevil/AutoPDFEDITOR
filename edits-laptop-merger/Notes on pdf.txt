@@ -1,0 +1,48 @@
+Notes on pdf
+
+extracting files from pdf, look at extracting multiple pages
+https://realpython.com/creating-modifying-pdf/#extracting-a-single-page-from-a-pdf
+
+
+
+
+https://stackoverflow.com/questions/1180115/add-text-to-existing-pdf-using-python
+
+Reportlab maybe the best option to edit the title
+https://www.reportlab.com/docs/reportlab-userguide.pdf
+
+thats going to be interesting to do
+
+
+user inputs batch number
+    create new batch folder
+    user inputs year requested
+        --r
+        find current year
+        get correct file
+        work backwards from end page, 
+        find page needed
+        add from that page forward
+        add first 6 pages
+        edit page 2 with reportlab
+    export to pdf to batch folder
+    
+    user inputs new batch number
+        user inputs new year --R
+    user choose finish
+exit program
+
+
+2020 too 19??
+200 page doc half pages are blank
+plus the 5 page at the start 
+
+1935?
+
+2020 - 6
+2014-1935 =79*2
+200 - 148
+21 to 6 must be deleted
+
+
+doclength - ((current year - 5) - asked year) = pageTooTodelete
