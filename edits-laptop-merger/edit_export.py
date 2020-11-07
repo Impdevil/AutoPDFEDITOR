@@ -70,6 +70,21 @@ def Export_Pdf(batch_num, ready_pdf,date):
         with Path("batches/"+batch_num,str(date.year)+str(date.month)+str(date.day)+"-Title Edit Required.pdf").open(mode="wb") as output_File:
             ready_pdf.write(output_File)
 
+
+def AutoRun():  
+    for file in os.listdir("batchxml"):
+        if file.endswith(".xml"):
+            curr_job = readXML(os.path.join("batchxml",file))
+            curr_pdf = XML_getPDF(curr_job)
+            curr_jobDate = curr_pdf[1]
+            curr_pdf = curr_pdf[0]
+            curr_pdf = Edit_Pdf(curr_pdf,curr_jobDate)
+            Export_Pdf(curr_job["Batch"]["Calendar"]["JobTicket"],curr_pdf,curr_jobDate)
+
+            #os.remove(file)
+
+
+
 def readXML(xmlfilepath):  
     with open(xmlfilepath) as fd:
         curr_job = xmltodict.parse(fd.read())

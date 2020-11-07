@@ -1,0 +1,20 @@
+﻿<Batch>
+  <Calendar>
+    <BatchNo>BM_MBEB_5901467_20201028</BatchNo>
+    <JobTicket>5901467</JobTicket>
+    <SKU>070202020000</SKU>
+    <Source>NET</Source>
+    <Product>MBEB</Product>
+    <StockItem>19500211DMIC</StockItem>
+    <StartMonth />
+    <Name>NONE</Name>
+    <Customer>Emma Price</Customer>
+    <Postcode>M29 7QL</Postcode>
+    <PresentedTo>Jean Hine</PresentedTo>
+    <Greeting>Dear Gran, 
+We hope you enjoy looking back
+through years gone by! 
+Lots of love, 
+Emma, Rachel, Connor and Aron</Greeting>
+  </Calendar>
+</Batch>

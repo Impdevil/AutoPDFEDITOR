@@ -3,31 +3,27 @@ import edit_export
 import re
 import datetime as dt
 import os
+import sys
+from edit_export import Edit_Pdf, Export_Pdf, AutoRun, readXML, XML_getPDF
 
-from edit_export import Edit_Pdf, Export_Pdf, readXML
+
 job_done = False
 
 
 batch_list = ""
 
+
+
+
 while job_done != True:
-
-    batch_number = input("Following commands: Type digits of manual batch,\nType auto for automatically running xml\n Or type quit to exit\n")
+    batch_number = ""
+    if len(sys.argv) < 2:
+        batch_number = input("Following commands:\nType digits of the manual batch,\nType 'auto' for automatically running xml\nOr type 'quit' to exit\n")
     curr_batch = batch_number
-    if batch_number == "auto":
+    if  len(sys.argv) >  1 or batch_number == "auto" :
+        if sys.argv[1] == "auto":
+            edit_export.AutoRun()
         
-        for file in os.listdir("batchxml"):
-            if file.endswith(".xml"):
-                curr_job = edit_export.readXML(os.path.join("batchxml",file))
-                curr_pdf = edit_export.XML_getPDF(curr_job)
-                curr_jobDate = curr_pdf[1]
-                curr_pdf = curr_pdf[0]
-                curr_pdf = edit_export.Edit_Pdf(curr_pdf,curr_jobDate)
-                edit_export.Export_Pdf(curr_job["Batch"]["Calendar"]["JobTicket"],curr_pdf,curr_jobDate)
-
-                #os.remove(file)
-
-            
     elif batch_number == "quit":
         print("completed batches: " + batch_list)
         job_done = True
@@ -62,3 +58,4 @@ while job_done != True:
 
         
     
+
