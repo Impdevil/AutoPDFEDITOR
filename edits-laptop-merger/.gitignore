@@ -159,7 +159,5 @@ test for arran.pdf
 .vscode/settings.json
 .vscode/launch.json
 
-batches/*
-batchxml/*
-pdfs/*
+#Program systems tests
 *.pdf
