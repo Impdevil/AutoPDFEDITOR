@@ -15,6 +15,7 @@ while job_done != True:
     batch_number = input("Following commands: Type digits of manual batch,\nType auto for automatically running xml\n Or type quit to exit\n")
     curr_batch = batch_number
     if batch_number == "auto":
+        
         for file in os.listdir("batchxml"):
             if file.endswith(".xml"):
                 curr_job = edit_export.readXML(os.path.join("batchxml",file))
