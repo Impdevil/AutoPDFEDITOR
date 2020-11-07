@@ -1,5 +1,4 @@
 
-import edit_export
 import re
 import datetime as dt
 import os
@@ -21,8 +20,8 @@ while job_done != True:
         batch_number = input("Following commands:\nType digits of the manual batch,\nType 'auto' for automatically running xml\nOr type 'quit' to exit\n")
     curr_batch = batch_number
     if  len(sys.argv) >  1 or batch_number == "auto" :
-        if sys.argv[1] == "auto":
-            edit_export.AutoRun()
+
+            AutoRun()
         
     elif batch_number == "quit":
         print("completed batches: " + batch_list)

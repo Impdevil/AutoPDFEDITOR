@@ -8,8 +8,6 @@ import xmltodict
 
 def Find_Pdf(date):
     print("find file")
-    test_Fname = "test for arran.pdf"
-    
     if int(date.month) < 10:
         month = "0"+str(date.month)
     else:
@@ -71,10 +69,12 @@ def Export_Pdf(batch_num, ready_pdf,date):
             ready_pdf.write(output_File)
 
 
-def AutoRun():  
+def AutoRun():
+    print(os.path.curdir)  
     for file in os.listdir("batchxml"):
         if file.endswith(".xml"):
             curr_job = readXML(os.path.join("batchxml",file))
+            
             curr_pdf = XML_getPDF(curr_job)
             curr_jobDate = curr_pdf[1]
             curr_pdf = curr_pdf[0]
@@ -87,7 +87,8 @@ def AutoRun():
 
 def readXML(xmlfilepath):  
     with open(xmlfilepath) as fd:
-        curr_job = xmltodict.parse(fd.read())
+        xmlfile = fd
+        curr_job = xmltodict.parse(xmlfile.read())
         print(curr_job["Batch"]["Calendar"]["JobTicket"])
     
 
